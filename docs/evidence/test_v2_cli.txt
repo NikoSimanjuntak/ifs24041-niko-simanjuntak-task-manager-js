@@ -1,0 +1,50 @@
+✔ init membuat file data (1.665237ms)
+✔ alur lengkap: add -> list -> done -> delete (2.147374ms)
+✔ data tersimpan antar pemanggilan (persistensi) (1.896112ms)
+✔ tugas lewat tenggat diberi label TERLAMBAT (0.566391ms)
+✔ error ditampilkan ke stderr dengan exit code 1 (0.289889ms)
+✔ perintah tidak dikenal -> exit code 1 (0.241388ms)
+✖ --due tanpa nilai harus error, bukan diam-diam diabaikan (1.271303ms)
+✔ --status tidak valid ditolak (0.455718ms)
+✔ ID non-angka ditolak dengan pesan jelas (0.512985ms)
+✔ loadTasks: file belum ada mengembalikan array kosong (1.93688ms)
+✔ loadTasks: file JSON rusak tidak membuat program crash (0.629821ms)
+✔ saveTasks lalu loadTasks: data konsisten (0.528448ms)
+✔ add: membuat tugas dengan id unik (1.405786ms)
+✔ add: id tetap unik setelah ada tugas yang dihapus (0.336233ms)
+✔ complete: id yang tidak ada melempar error yang jelas (0.375146ms)
+✔ list: tugas tanpa tenggat tidak membuat crash dan ditaruh di akhir (0.726942ms)
+✔ add: judul kosong ditolak (0.240187ms)
+✔ add: tanggal tidak valid ditolak (0.18575ms)
+✔ list: urutan stabil walau banyak tugas tanpa tenggat di berbagai posisi (1.285387ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 18
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 201.724144
+
+✖ failing tests:
+
+test at test/cli.test.js:61:1
+✖ --due tanpa nilai harus error, bukan diam-diam diabaikan (1.271303ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (/home/claude/task-manager-js/test/cli.test.js:64:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1047:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+      at Test.postRun (node:internal/test_runner/test:1173:19)
+      at Test.run (node:internal/test_runner/test:1101:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

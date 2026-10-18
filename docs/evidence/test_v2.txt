@@ -1,0 +1,18 @@
+✔ loadTasks: file belum ada mengembalikan array kosong (2.649564ms)
+✔ loadTasks: file JSON rusak tidak membuat program crash (0.90188ms)
+✔ saveTasks lalu loadTasks: data konsisten (0.870171ms)
+✔ add: membuat tugas dengan id unik (1.428781ms)
+✔ add: id tetap unik setelah ada tugas yang dihapus (0.344409ms)
+✔ complete: id yang tidak ada melempar error yang jelas (0.470712ms)
+✔ list: tugas tanpa tenggat tidak membuat crash dan ditaruh di akhir (0.855082ms)
+✔ add: judul kosong ditolak (0.220034ms)
+✔ add: tanggal tidak valid ditolak (0.189133ms)
+✔ list: urutan stabil walau banyak tugas tanpa tenggat di berbagai posisi (1.302272ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 167.147352

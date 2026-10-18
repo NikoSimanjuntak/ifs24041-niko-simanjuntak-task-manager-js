@@ -1,0 +1,27 @@
+✔ init membuat file data (2.186916ms)
+✔ alur lengkap: add -> list -> done -> delete (2.122237ms)
+✔ data tersimpan antar pemanggilan (persistensi) (1.883365ms)
+✔ tugas lewat tenggat diberi label TERLAMBAT (0.569704ms)
+✔ error ditampilkan ke stderr dengan exit code 1 (0.380277ms)
+✔ perintah tidak dikenal -> exit code 1 (0.232502ms)
+✔ --due tanpa nilai harus error, bukan diam-diam diabaikan (0.492511ms)
+✔ --status tidak valid ditolak (0.58734ms)
+✔ ID non-angka ditolak dengan pesan jelas (0.564356ms)
+✔ loadTasks: file belum ada mengembalikan array kosong (2.484331ms)
+✔ loadTasks: file JSON rusak tidak membuat program crash (1.139216ms)
+✔ saveTasks lalu loadTasks: data konsisten (0.739071ms)
+✔ add: membuat tugas dengan id unik (2.095315ms)
+✔ add: id tetap unik setelah ada tugas yang dihapus (0.603654ms)
+✔ complete: id yang tidak ada melempar error yang jelas (0.714921ms)
+✔ list: tugas tanpa tenggat tidak membuat crash dan ditaruh di akhir (1.158408ms)
+✔ add: judul kosong ditolak (0.237351ms)
+✔ add: tanggal tidak valid ditolak (0.262195ms)
+✔ list: urutan stabil walau banyak tugas tanpa tenggat di berbagai posisi (1.631934ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 220.575897
