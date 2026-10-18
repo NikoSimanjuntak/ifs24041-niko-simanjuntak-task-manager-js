@@ -1,0 +1,151 @@
+✖ loadTasks: file belum ada mengembalikan array kosong (1.153661ms)
+✖ loadTasks: file JSON rusak tidak membuat program crash (0.328368ms)
+✔ saveTasks lalu loadTasks: data konsisten (1.186286ms)
+✔ add: membuat tugas dengan id unik (1.522119ms)
+✖ add: id tetap unik setelah ada tugas yang dihapus (1.75968ms)
+✖ complete: id yang tidak ada melempar error yang jelas (0.83795ms)
+✔ list: tugas tanpa tenggat tidak membuat crash dan ditaruh di akhir (13.579454ms)
+✖ add: judul kosong ditolak (0.322198ms)
+✖ add: tanggal tidak valid ditolak (0.375043ms)
+✖ list: urutan stabil walau banyak tugas tanpa tenggat di berbagai posisi (0.289149ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 3
+ℹ fail 7
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 178.354519
+
+✖ failing tests:
+
+test at test/storage.test.js:10:1
+✖ loadTasks: file belum ada mengembalikan array kosong (1.153661ms)
+  Error: ENOENT: no such file or directory, open '/tmp/tm-U19Iwm/tasks.json'
+      at Object.readFileSync (node:fs:440:20)
+      at loadTasks (/home/claude/task-manager-js/src/storage.js:4:18)
+      at TestContext.<anonymous> (/home/claude/task-manager-js/test/storage.test.js:11:26)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1047:25)
+      at Test.start (node:internal/test_runner/test:944:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/tmp/tm-U19Iwm/tasks.json'
+  }
+
+test at test/storage.test.js:14:1
+✖ loadTasks: file JSON rusak tidak membuat program crash (0.328368ms)
+  SyntaxError: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+      at JSON.parse (<anonymous>)
+      at loadTasks (/home/claude/task-manager-js/src/storage.js:5:15)
+      at TestContext.<anonymous> (/home/claude/task-manager-js/test/storage.test.js:17:26)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1047:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+      at Test.postRun (node:internal/test_runner/test:1173:19)
+      at Test.run (node:internal/test_runner/test:1101:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+
+test at test/taskManager.test.js:12:1
+✖ add: id tetap unik setelah ada tugas yang dihapus (1.75968ms)
+  AssertionError [ERR_ASSERTION]: ID duplikat: 2,2
+  
+  1 !== 2
+  
+      at TestContext.<anonymous> (/home/claude/task-manager-js/test/taskManager.test.js:19:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1047:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+      at Test.postRun (node:internal/test_runner/test:1173:19)
+      at Test.run (node:internal/test_runner/test:1101:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/taskManager.test.js:23:1
+✖ complete: id yang tidak ada melempar error yang jelas (0.83795ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /tidak ditemukan/. Input:
+  
+  "TypeError: Cannot set properties of undefined (setting 'done')"
+  
+      at TestContext.<anonymous> (/home/claude/task-manager-js/test/taskManager.test.js:25:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1047:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+      at Test.postRun (node:internal/test_runner/test:1173:19)
+      at Test.run (node:internal/test_runner/test:1101:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: TypeError: Cannot set properties of undefined (setting 'done')
+        at TaskManager.complete (/home/claude/task-manager-js/src/taskManager.js:20:15)
+        at /home/claude/task-manager-js/test/taskManager.test.js:25:26
+        at getActual (node:assert:609:5)
+        at Function.throws (node:assert:757:24)
+        at TestContext.<anonymous> (/home/claude/task-manager-js/test/taskManager.test.js:25:10)
+        at Test.runInAsyncScope (node:async_hooks:214:14)
+        at Test.run (node:internal/test_runner/test:1047:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+        at Test.postRun (node:internal/test_runner/test:1173:19)
+        at Test.run (node:internal/test_runner/test:1101:12),
+    expected: /tidak ditemukan/,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at test/taskManager.test.js:36:1
+✖ add: judul kosong ditolak (0.322198ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (/home/claude/task-manager-js/test/taskManager.test.js:38:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1047:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+      at Test.postRun (node:internal/test_runner/test:1173:19)
+      at Test.run (node:internal/test_runner/test:1101:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /judul/i,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at test/taskManager.test.js:41:1
+✖ add: tanggal tidak valid ditolak (0.375043ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (/home/claude/task-manager-js/test/taskManager.test.js:43:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1047:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+      at Test.postRun (node:internal/test_runner/test:1173:19)
+      at Test.run (node:internal/test_runner/test:1101:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /tanggal/i,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at test/taskManager.test.js:46:1
+✖ list: urutan stabil walau banyak tugas tanpa tenggat di berbagai posisi (0.289149ms)
+  TypeError: Cannot read properties of undefined (reading 'localeCompare')
+      at /home/claude/task-manager-js/src/taskManager.js:32:45
+      at Array.sort (<anonymous>)
+      at TaskManager.list (/home/claude/task-manager-js/src/taskManager.js:32:24)
+      at TestContext.<anonymous> (/home/claude/task-manager-js/test/taskManager.test.js:52:21)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1047:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+      at Test.postRun (node:internal/test_runner/test:1173:19)
+      at Test.run (node:internal/test_runner/test:1101:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:744:7)

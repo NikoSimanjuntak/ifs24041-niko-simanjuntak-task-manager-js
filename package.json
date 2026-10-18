@@ -1,0 +1,13 @@
+{
+  "name": "task-manager-js",
+  "version": "0.1.0",
+  "description": "Task manager CLI sederhana berbasis Node.js, dikembangkan dengan bantuan AI generatif",
+  "main": "src/taskManager.js",
+  "bin": { "tm": "bin/tm.js" },
+  "scripts": {
+    "start": "node bin/tm.js",
+    "test": "node --test --test-reporter=spec"
+  },
+  "engines": { "node": ">=18" },
+  "license": "MIT"
+}
